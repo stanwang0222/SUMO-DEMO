@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<connections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/connections_file.xsd">
+	<connection from="f41" to="f12"/>
+	<connection from="f21" to="f14"/>
+
+	<connection from="f12" to="f23"/>
+	<connection from="f12" to="f25"/>
+	<connection from="f52" to="f21"/>
+	<connection from="f52" to="f23"/>
+	<connection from="f32" to="f21"/>
+	<connection from="f32" to="f25"/>
+
+	<connection from="f23" to="f36"/>
+	<connection from="f63" to="f32"/>
+
+	<connection from="f36" to="f65"/>
+	<connection from="f56" to="f63"/>
+
+	<connection from="f65" to="f54"/>
+	<connection from="f65" to="f52"/>
+	<connection from="f45" to="f52"/>
+	<connection from="f45" to="f56"/>
+	<connection from="f25" to="f54"/>
+	<connection from="f25" to="f56"/>
+
+	<connection from="f54" to="f41"/>
+	<connection from="f14" to="f45"/>
+</connections>
