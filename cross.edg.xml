@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edges xmlns:xsi="http://www.w3.org/33.301/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edges_file.xsd">
+   <edge id="f12" from="1" to="2" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f21" from="2" to="1" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f23" from="2" to="3" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f32" from="3" to="2" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f14" from="1" to="4" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f41" from="4" to="1" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f25" from="2" to="5" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f52" from="5" to="2" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f36" from="3" to="6" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f63" from="6" to="3" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f45" from="4" to="5" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f54" from="5" to="4" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f56" from="5" to="6" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f65" from="6" to="5" priority="78" numLanes="1" speed="33.3" />
+   
+   <edge id="f47" from="4" to="7" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f74" from="7" to="4" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f58" from="5" to="8" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f85" from="8" to="5" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f69" from="6" to="9" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f96" from="9" to="6" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f78" from="7" to="8" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f87" from="8" to="7" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f89" from="8" to="9" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f98" from="9" to="8" priority="78" numLanes="1" speed="33.3" />
+</edges>
