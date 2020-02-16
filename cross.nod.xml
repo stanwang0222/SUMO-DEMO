@@ -4,11 +4,11 @@
 	<node id="1" x="-130.0" y="130.0" type="priority"/>
 	<node id="2" x="-130.0" y="0.0" type="priority"/>
 	<node id="3" x="-130.0" y="-130.0" type="priority"/>
-	<node id="4" x="0.0" y="130.0" type="priority"/>	
-	<node id="5" x="0.0" y="0.0" type="trafficlight"/>
+	<node id="4" x="0.0" y="130.0" type="priority"/>
+	<node id="5" x="0.0" y="0.0" type="traffic_light"/>
 	<node id="6" x="0.0" y="-130.0" type="priority"/>
 	<node id="7" x="130.0" y="130.0" type="priority"/>
 	<node id="8" x="130.0" y="0.0" type="priority"/>
 	<node id="9" x="130.0" y="-130.0" type="priority"/>
-   
+
 </nodes>
