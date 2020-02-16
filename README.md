@@ -20,11 +20,65 @@ SUMO 用來模擬車輛在一個網絡道路中的移動性，並且可以將道
 
 # 使用教學
 ## 自行建點建邊做道路網路
-### Node file
-{%gist stanwang0222/13a36fc85f59a070b23d10018d37496f%}
-### Edge file
-{%gist stanwang0222/4783c110b21a1e7dcee8f0ac6265b0aa%}
-### Connection file
+### [Node file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.nod.xml)
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes xmlns:xsi="http://www.w3.org/1301/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
+
+	<node id="1" x="-130.0" y="130.0" type="priority"/>
+	<node id="2" x="-130.0" y="0.0" type="priority"/>
+	<node id="3" x="-130.0" y="-130.0" type="priority"/>
+	<node id="4" x="0.0" y="130.0" type="priority"/>	
+	<node id="5" x="0.0" y="0.0" type="trafficlight"/>
+	<node id="6" x="0.0" y="-130.0" type="priority"/>
+	<node id="7" x="130.0" y="130.0" type="priority"/>
+	<node id="8" x="130.0" y="0.0" type="priority"/>
+	<node id="9" x="130.0" y="-130.0" type="priority"/>
+   
+</nodes>
+```
+### [Edge file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.edg.xml)
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<edges xmlns:xsi="http://www.w3.org/33.301/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edges_file.xsd">
+   <edge id="f12" from="1" to="2" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f21" from="2" to="1" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f23" from="2" to="3" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f32" from="3" to="2" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f14" from="1" to="4" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f41" from="4" to="1" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f25" from="2" to="5" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f52" from="5" to="2" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f36" from="3" to="6" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f63" from="6" to="3" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f45" from="4" to="5" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f54" from="5" to="4" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f56" from="5" to="6" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f65" from="6" to="5" priority="78" numLanes="1" speed="33.3" />
+   
+   <edge id="f47" from="4" to="7" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f74" from="7" to="4" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f58" from="5" to="8" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f85" from="8" to="5" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f69" from="6" to="9" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f96" from="9" to="6" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f78" from="7" to="8" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f87" from="8" to="7" priority="78" numLanes="1" speed="33.3" />
+
+   <edge id="f89" from="8" to="9" priority="78" numLanes="1" speed="33.3" />
+   <edge id="f98" from="9" to="8" priority="78" numLanes="1" speed="33.3" />
+</edges>
+```
+### [Connection file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.con.xml)
 用來將edge做連線成為一個路口連線
 ```xml
 <?xml version="1.0" encoding="iso-8859-1"?>
