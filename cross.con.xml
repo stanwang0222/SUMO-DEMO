@@ -13,16 +13,43 @@
 	<connection from="f23" to="f36"/>
 	<connection from="f63" to="f32"/>
 
-	<connection from="f36" to="f65"/>
-	<connection from="f56" to="f63"/>
+	<connection from="f14" to="f45"/>
+	<connection from="f14" to="f47"/>
+	<connection from="f54" to="f41"/>
+	<connection from="f54" to="f47"/>
+	<connection from="f74" to="f41"/>
+	<connection from="f74" to="f45"/>
 
 	<connection from="f65" to="f54"/>
 	<connection from="f65" to="f52"/>
+	<connection from="f65" to="f58"/>
 	<connection from="f45" to="f52"/>
 	<connection from="f45" to="f56"/>
+	<connection from="f45" to="f58"/>
 	<connection from="f25" to="f54"/>
 	<connection from="f25" to="f56"/>
+	<connection from="f25" to="f58"/>
+	<connection from="f85" to="f54"/>
+	<connection from="f85" to="f52"/>
+	<connection from="f85" to="f56"/>
 
-	<connection from="f54" to="f41"/>
-	<connection from="f14" to="f45"/>
+	<connection from="f36" to="f65"/>
+	<connection from="f36" to="f69"/>
+	<connection from="f56" to="f63"/>
+	<connection from="f56" to="f69"/>
+	<connection from="f96" to="f65"/>
+	<connection from="f96" to="f63"/>
+
+	<connection from="f47" to="f78"/>
+	<connection from="f87" to="f74"/>
+
+	<connection from="f78" to="f85"/>
+	<connection from="f78" to="f89"/>
+	<connection from="f58" to="f87"/>
+	<connection from="f58" to="f89"/>
+	<connection from="f98" to="f87"/>
+	<connection from="f98" to="f85"/>
+
+	<connection from="f69" to="f98"/>
+	<connection from="f89" to="f96"/>
 </connections>
