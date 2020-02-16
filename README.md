@@ -15,12 +15,26 @@ SUMO 用來模擬車輛在一個網絡道路中的移動性，並且可以將道
 在 Windows 環境下，個人偏好下載(.zip)的版本，解壓縮在自己想放的資料夾位置後即可開始使用。
 ## 環境變數設定
 開啟 Windows 的環境參數配置頁面（在開始工具列直接搜尋「環境變數」即可）。
+
 ![](https://i.imgur.com/3BLrGjC.png)
+
+在Path的環境路徑下新增SUMO資料夾內的bin路徑
+
+![](https://i.imgur.com/K954pLx.png)
+
+新增環境變數SUMO_HOME，路徑指到SUMO的資料夾位置
+
+![](https://i.imgur.com/33SzeMP.png)
+
+設定完以上兩個之後，即完成SUMO的模擬環境配置
+
+
 
 
 # 使用教學
-## 自行建點建邊做道路網路
+## 方法一、自行建點建邊做道路網絡
 ### [Node file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.nod.xml)
+node有id名稱、X軸座標、Y軸座標與點型態(常見:priority、trafficlight)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <nodes xmlns:xsi="http://www.w3.org/1301/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
@@ -29,7 +43,7 @@ SUMO 用來模擬車輛在一個網絡道路中的移動性，並且可以將道
 	<node id="2" x="-130.0" y="0.0" type="priority"/>
 	<node id="3" x="-130.0" y="-130.0" type="priority"/>
 	<node id="4" x="0.0" y="130.0" type="priority"/>	
-	<node id="5" x="0.0" y="0.0" type="trafficlight"/>
+	<node id="5" x="0.0" y="0.0" type="traffic_light"/>
 	<node id="6" x="0.0" y="-130.0" type="priority"/>
 	<node id="7" x="130.0" y="130.0" type="priority"/>
 	<node id="8" x="130.0" y="0.0" type="priority"/>
@@ -79,21 +93,74 @@ SUMO 用來模擬車輛在一個網絡道路中的移動性，並且可以將道
 </edges>
 ```
 ### [Connection file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.con.xml)
-用來將edge做連線成為一個路口連線
+用來將道路中的edge做連線使其成為一個車輛可行走的路線(可以右轉、直走、左轉或迴轉)
 ```xml
 <?xml version="1.0" encoding="iso-8859-1"?>
 <connections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/connections_file.xsd">
-	<connection from="1i" to="2o"/>
-	<connection from="2i" to="1o"/>
-	<connection from="3i" to="4o"/>
-	<connection from="4i" to="3o"/>
+	<connection from="f41" to="f12"/>
+	<connection from="f21" to="f14"/>
+
+	<connection from="f12" to="f23"/>
+	<connection from="f12" to="f25"/>
+	<connection from="f52" to="f21"/>
+	<connection from="f52" to="f23"/>
+	<connection from="f32" to="f21"/>
+	<connection from="f32" to="f25"/>
+
+	<connection from="f23" to="f36"/>
+	<connection from="f63" to="f32"/>
+
+	<connection from="f14" to="f45"/>
+	<connection from="f14" to="f47"/>
+	<connection from="f54" to="f41"/>
+	<connection from="f54" to="f47"/>
+	<connection from="f74" to="f41"/>
+	<connection from="f74" to="f45"/>
+
+	<connection from="f65" to="f54"/>
+	<connection from="f65" to="f52"/>
+	<connection from="f65" to="f58"/>
+	<connection from="f45" to="f52"/>
+	<connection from="f45" to="f56"/>
+	<connection from="f45" to="f58"/>
+	<connection from="f25" to="f54"/>
+	<connection from="f25" to="f56"/>
+	<connection from="f25" to="f58"/>
+	<connection from="f85" to="f54"/>
+	<connection from="f85" to="f52"/>
+	<connection from="f85" to="f56"/>
+
+	<connection from="f36" to="f65"/>
+	<connection from="f36" to="f69"/>
+	<connection from="f56" to="f63"/>
+	<connection from="f56" to="f69"/>
+	<connection from="f96" to="f65"/>
+	<connection from="f96" to="f63"/>
+
+	<connection from="f47" to="f78"/>
+	<connection from="f87" to="f74"/>
+
+	<connection from="f78" to="f85"/>
+	<connection from="f78" to="f89"/>
+	<connection from="f58" to="f87"/>
+	<connection from="f58" to="f89"/>
+	<connection from="f98" to="f87"/>
+	<connection from="f98" to="f85"/>
+
+	<connection from="f69" to="f98"/>
+	<connection from="f89" to="f96"/>
 </connections>
 ```
 
-### Net生成指令
-```xml
-netconvert --node-files=MyNodes.nod.xml --edge-files=MyEdges.edg.xml --output-file=MySUMONet.net.xml
-```
+### 道路網絡生成指令
+netconvert.exe存在SUMO/bin的路徑下，必須引入node file與edge file才可建立
+:::info
+netconvert --node-files=[MyNodes.nod.xml] --edge-files=[MyEdges.edg.xml] --output-file=[MySUMONet.net.xml]
+:::
+其中connect file可填可不填，填了道路會按照設定的形式來建立車輛可行走的方向，若不填則會直接假設車輛可以允許與相連的所有邊來行走
+:::info
+netconvert --node-files=[MyNodes.nod.xml] --edge-files=[MyEdges.edg.xml] --output-file=[MySUMONet.net.xml]
+
 ### Trips生成指令
 在sumo/tools/路徑下
 ```xml
@@ -155,10 +222,3 @@ duarouter -n osm.net.xml -r osm.trips.xml -o osm.rou.xml --ignore-errors
 ```xml
 python <SUMO_HOME>/tools/osmWebWizard.py
 ```
-### 環境變數設定
-加入兩個環境變數
-1. PATH : C:\Program Files\sumo-1.1.0\bin
-2. SUMO_HOME : C:\Program Files\sumo-1.1.0
-:::warning
-C:\Program Files 為SUMO路徑，請自行更改
-:::
