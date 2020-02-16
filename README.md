@@ -34,7 +34,7 @@ SUMO 用來模擬車輛在一個網絡道路中的移動性，並且可以將道
 # 使用教學
 ## 方法一、自行建點建邊做道路網絡
 ### [Node file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.nod.xml)
-node有id名稱、X軸座標、Y軸座標與點型態(常見:priority、trafficlight)
+node有id名稱、X軸座標、Y軸座標與點型態(常見:priority、traffic_light)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <nodes xmlns:xsi="http://www.w3.org/1301/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
@@ -155,11 +155,12 @@ node有id名稱、X軸座標、Y軸座標與點型態(常見:priority、trafficl
 ### 道路網絡生成指令
 netconvert.exe存在SUMO/bin的路徑下，必須引入node file與edge file才可建立
 :::info
-netconvert --node-files=[MyNodes.nod.xml] --edge-files=[MyEdges.edg.xml] --output-file=[MySUMONet.net.xml]
+netconvert --node-files=[MyNodes.nod.xml] --edge-files=[MyEdges.edg.xml] --connect-files=[MyConnect.con.xml] --output-file=[MySUMONet.net.xml]
 :::
 其中connect file可填可不填，填了道路會按照設定的形式來建立車輛可行走的方向，若不填則會直接假設車輛可以允許與相連的所有邊來行走
 :::info
 netconvert --node-files=[MyNodes.nod.xml] --edge-files=[MyEdges.edg.xml] --output-file=[MySUMONet.net.xml]
+:::
 
 ### Trips生成指令
 在sumo/tools/路徑下
