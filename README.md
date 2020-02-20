@@ -1,7 +1,9 @@
 SUMO使用大全
 ===
+Hackmd 上的教學更新比較快 : 
 [Hackmd Link](https://hackmd.io/@Q3rbDqtfQLurEkgTZfo5FA/B1IeJt0BN)
 
+教學文件中的程式位置 : 
 [Github Link](https://github.com/stanwang0222/SUMO-DEMO)
 
 [TOC]
@@ -40,8 +42,9 @@ SUMO 大致上需要至少<font color=red>**兩種 input 資訊**</font>才可�
 
 
 # 使用教學
-## 方法一、自行建點建邊做道路網絡
-### [Node file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.nod.xml)
+## 地圖環境 net.xml
+### 方法一、自行建點建邊做道路網絡
+#### [Node file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.nod.xml)
 node 有 id名稱、X軸座標、Y軸座標與點型態(常見：priority、traffic_light)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -59,7 +62,7 @@ node 有 id名稱、X軸座標、Y軸座標與點型態(常見：priority、traf
    
 </nodes>
 ```
-### [Edge file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.edg.xml)
+#### [Edge file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.edg.xml)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <edges xmlns:xsi="http://www.w3.org/33.301/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edges_file.xsd">
@@ -100,7 +103,7 @@ node 有 id名稱、X軸座標、Y軸座標與點型態(常見：priority、traf
    <edge id="f98" from="9" to="8" priority="78" numLanes="1" speed="33.3" />
 </edges>
 ```
-### [Connection file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.con.xml)
+#### [Connection file](https://github.com/stanwang0222/SUMO-DEMO/blob/master/cross.con.xml)
 用來將道路中的 edge 做連線使其成為一個車輛可行走的路線(可以右轉、直走、左轉或迴轉)
 ```xml
 <?xml version="1.0" encoding="iso-8859-1"?>
@@ -160,7 +163,7 @@ node 有 id名稱、X軸座標、Y軸座標與點型態(常見：priority、traf
 </connections>
 ```
 
-### 道路網絡生成指令
+#### 道路網絡生成指令
 netconvert.exe 存在 <SUMO_HOME>/bin 的路徑下，必須引入 node file 與 edge file 才可建立
 ```
 netconvert --node-files=[MyNodes.nod.xml] --edge-files=[MyEdges.edg.xml] --connect-files=[MyConnect.con.xml] --output-file=[MySUMONet.net.xml]
@@ -170,7 +173,7 @@ netconvert --node-files=[MyNodes.nod.xml] --edge-files=[MyEdges.edg.xml] --conne
 netconvert --node-files=[MyNodes.nod.xml] --edge-files=[MyEdges.edg.xml] --output-file=[MySUMONet.net.xml]
 ```
 
-## 方法二、透過 OpenStreepMap，載入真實地圖
+### 方法二、透過 OpenStreepMap，載入真實地圖
 1. 開啟 OpenStreepMap 元件
 ```
 python <SUMO_HOME>/tools/osmWebWizard.py
@@ -178,7 +181,7 @@ python <SUMO_HOME>/tools/osmWebWizard.py
 2. 調整引入的資訊(Polygon、Vehicle)
 3. 選取地圖範圍
 
-## 方法三、直接透過 SUMO 的圖形化介面自己拉圖
+### 方法三、直接透過 SUMO 的圖形化介面自己拉圖
 
 
 以上三個方法，執行完成後會產出一個 net.xml 檔，此為模擬地圖環境的檔案，是整個模擬中的第一個 input 資訊。
@@ -237,7 +240,12 @@ duarouter -n osm.net.xml -r osm.trips.xml -o osm.rou.xml --ignore-errors
 
 ```
 ## 執行 SUMO
-
-
+如果想要看到執行的介面，觀察車輛移動性的話，指令需要下 sumo-gui，如果只是單純的想要執行，不想看到執行的使用者介面，只需要打 sumo 即可，"YOUR.sumocfg" 是自己定義的 sumocfg 檔案名稱，"--tripinfo-output" 這段指令用來要求模擬器在模擬結束的時候，輸出每一輛車輛在網絡中的模擬參數，包括旅行時間、等待時間、燃料消耗等等，"YOUR.tripinfo.xml" 是自己定義的輸出檔案名稱。
+```
+sumo-gui -c [YOUR.sumocfg] --tripinfo-output [YOUR.tripinfo.xml]
+```
+```
+sumo -c [YOUR.sumocfg] --tripinfo-output [YOUR.tripinfo.xml]
+```
 
 ## 
