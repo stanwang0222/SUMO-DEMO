@@ -178,14 +178,44 @@ netconvert --node-files=[MyNodes.nod.xml] --edge-files=[MyEdges.edg.xml] --outpu
 ```
 python <SUMO_HOME>/tools/osmWebWizard.py
 ```
+開啟的畫面如下
+![](https://i.imgur.com/4dHyy9G.jpg)
+
 2. 調整引入的資訊(Polygon、Vehicle)
+
+從右邊的欄位點開調整
+
+* 在這裡我們想要在後續自行加入車輛，所以把打勾取消
+![](https://i.imgur.com/IDfbFV4.png =650x)
+
+* 這裡是加入建築物模型的檔案，通常用於模擬封包傳遞時，建築物帶來的阻撓或影響，如果需要才打勾
+![](https://i.imgur.com/IA6m9dJ.png =650x)
+
 3. 選取地圖範圍
+![](https://i.imgur.com/Yf8akuh.png =650x)
+
+4. 最後按下 Generate Scenario 就可以擷取此範圍的地圖下來
+![](https://i.imgur.com/SgjJAHm.png =550x)
+
+擷取完成後就可以看到以下的結果
+![](https://i.imgur.com/znlyjX0.png)
+擷取下來的檔案存放在 <SUMO_HOME>/tools/ 路徑上
+
+
 
 ### 方法三、直接透過 SUMO 的圖形化介面自己拉圖
+此方法可以直接透過 SUMO GUI 的介面來建立或調整地圖
+![](https://i.imgur.com/bGvQ4rp.png)
+
+開啟之後可以看到它有很多功能可以使用，建議可以自行嘗試摸索才能更佳理解，這邊我只簡單介紹
+
+![](https://i.imgur.com/hdLcnYx.png)
 
 
+
+:::info
 以上三個方法，執行完成後會產出一個 net.xml 檔，此為模擬地圖環境的檔案，是整個模擬中的第一個 input 資訊。
-
+:::
 
 
 ## Trips 生成指令
