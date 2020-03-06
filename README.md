@@ -1,5 +1,7 @@
 SUMO使用大全
 ===
+***教學筆記以 Hackmd 顯示的方式為主***
+
 Hackmd 上的教學更新比較快 : 
 [Hackmd Link](https://hackmd.io/@Q3rbDqtfQLurEkgTZfo5FA/B1IeJt0BN)
 
@@ -209,6 +211,7 @@ python <SUMO_HOME>/tools/osmWebWizard.py
 
 開啟之後可以看到它有很多功能可以使用，建議可以自行嘗試摸索才能更佳理解，這邊我只簡單介紹
 
+1. 建立道路，起點:arrow_right:終點，Two-way 選項可以建立雙向道
 ![](https://i.imgur.com/hdLcnYx.png)
 
 
@@ -278,4 +281,5 @@ sumo-gui -c [YOUR.sumocfg] --tripinfo-output [YOUR.tripinfo.xml]
 sumo -c [YOUR.sumocfg] --tripinfo-output [YOUR.tripinfo.xml]
 ```
 
-## 
+# SUMO & TraCI 雙向操作
+SUMO 的資料夾中，有內建的雙向控制範例，位在 <SUMO_HOME>/docs/tutorial/traci_tls，在此我上傳了 SUMO 1.2.0 的[範例](https://github.com/stanwang0222/SUMO-DEMO/tree/master/traci_tls)，
